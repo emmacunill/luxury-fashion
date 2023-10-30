@@ -130,4 +130,4 @@ We also can prove that Runways nowadays are ysed as a lifestyle event and are no
 
 [Fashion United]("https://fashionunited.com/i/top200")
 
-[Canva Presentation]("https://fashionunited.com/i/top200")
+[Canva Presentation]("https://www.canva.com/design/DAFywJ8Gbjo/z30AT2x216v3prputMbcuw/edit?utm_content=DAFywJ8Gbjo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton")
