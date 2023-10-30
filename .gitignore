@@ -4,4 +4,5 @@ data/LuxFashion-Q42019.csv
 data/100_fashion_money.csv
 data/merged.csv
 data/Luxury_Fashion.csv
+src/__pycache__
 

@@ -9,8 +9,6 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import requests 
 
-df = pd.read_csv("data/merged.csv")
-
 
 def clean_dataset (df):
 
@@ -38,10 +36,6 @@ def clean_dataset (df):
     
     return df
 
-clean_df = clean_dataset(df)
-
-print(clean_df)
-
 
 
 def clean_cap(cap):
@@ -63,8 +57,5 @@ def extract_clean(clean_df):
     clean_df.to_csv(f"data/Luxury_Fashion.csv", index=False)
     return clean_df
     
-
-lf = extract_clean(clean_df)
-
 
 

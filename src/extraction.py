@@ -10,11 +10,6 @@ from urllib.request import urlopen
 import requests 
 
 
-df_1 = pd.read_csv("data/Dataset Global Fashion Brands Brand Equity Ranking Growth Rate  COO ROO 2001-2021.csv")
-
-df_2= pd.read_csv("data/LuxFashion-Q42019.csv")
-
-url = 'https://fashionunited.com/i/top200'
 
 def download_html(url):
 
@@ -24,7 +19,6 @@ def download_html(url):
     html = res.content
     return BeautifulSoup(html, 'html.parser')
 
-soup = download_html(url)
 
 def get_table_web(soup):
 
@@ -39,15 +33,9 @@ def get_table_web(soup):
         data.append(cols)
     ds = pd.DataFrame(data, columns=['Index','Rank', 'Company', 'Mcap $', 'Type'])
     ds = ds.drop(['Index'], axis=1)
+    ds.to_csv(f"data/100_fashion_money.csv")
     return ds
 
-df_3 = get_table_web(soup)
-
-df_3.to_csv(f"data/100_fashion_money.csv")
-
-url_2 = 'https://www.wallpaper.com/fashion-beauty/milan-fashion-week-aw-2023-highlights'
-
-soup = download_html(url_2)
 
 def titles_article(soup):
 
@@ -58,10 +46,6 @@ def titles_article(soup):
     brands = [i.getText() for i in titles]
     return [i for i in brands if "Week" not in i]
 
-MFW = titles_article(soup)
-
-url_3 = "https://www.fhcm.paris/en/paris-fashion-week/calendar"
-soup = download_html(url_3)
 
 def brands_filtered(soup):
 
@@ -72,10 +56,6 @@ def brands_filtered(soup):
     names = [i.find("h3") for i in a]
     return [i.getText().title() for i in names]
 
-PFW = brands_filtered(soup)
-
-url_4 = "https://www.vogue.com/fashion-shows"
-soup = download_html(url_4)
 
 def get_nav_brands(soup):
 
@@ -84,7 +64,6 @@ def get_nav_brands(soup):
     li = soup.find_all("li", {"class":"NavigationListItemWrapper-cxLZKD iAYgTw link--secondary navigation__list-item"})
     return [i.getText() for i in li]
 
-NYFW = get_nav_brands(soup)
 
 def merge_df(df_1,df_2,df_3,MFW,PFW,NYFW):
 
@@ -103,7 +82,6 @@ def merge_df(df_1,df_2,df_3,MFW,PFW,NYFW):
     merged_df.to_csv(f"data/merged.csv")
     return merged_df
 
-merged = merge_df(df_1,df_2,df_3,MFW,PFW,NYFW)
 
 
 

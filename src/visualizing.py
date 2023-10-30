@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import requests 
 
-df = pd.read_csv("data/Luxury_Fashion.csv")
 
 def plot_top5 (df):
 
@@ -23,10 +22,7 @@ def plot_top5 (df):
    for index, row in top_5_brands.iterrows():
       plt.text(index, row["Rank2023"] + 4, str(row["Rank2023"]), ha='center')
    plt.savefig(f"figures/rank_5.png", bbox_inches = "tight")
-   return plt.show()
-
-plot_top5(df)
-
+   
 
 def plot_top10 (df):
 
@@ -40,9 +36,8 @@ def plot_top10 (df):
    for index, row in top_10_brands.iterrows():
       plt.text(index, row["Rank2023"] + 4, str(row["Rank2023"]), ha='center')
    plt.savefig(f"figures/rank_10.png", bbox_inches = "tight")
-   return plt.show()
+   
 
-plot_top10(df)
 
 
 def sentiment10 (df):
@@ -57,9 +52,7 @@ def sentiment10 (df):
    for index, row in top_10_brands.iterrows():
       plt.text(index, row["Sentiment2023"] + 4, str(row["Sentiment2023"]), ha='center')
    plt.savefig(f"figures/sentiment_10.png", bbox_inches = "tight")
-   return plt.show()
-
-sentiment10(df)
+   
 
 
 def webvisibility10 (df):
@@ -74,9 +67,7 @@ def webvisibility10 (df):
    for index, row in top_10_brands.iterrows():
       plt.text(index, row["WebVisibility2023"] + 4, str(row["WebVisibility2023"]), ha='center')
    plt.savefig(f"figures/web_visibility_10.png", bbox_inches = "tight")
-   return plt.show()
-
-webvisibility10(df)
+   
 
 
 
@@ -93,9 +84,7 @@ def runway10 (df):
     sb.set(font_scale=1.2)
     plt.xticks(rotation=90)
     plt.savefig(f"figures/runway_10.png", bbox_inches = "tight")
-    return plt.show()
-
-runway10(df)
+   
 
 
 def top2017(df):
@@ -109,9 +98,7 @@ def top2017(df):
     plt.subplots_adjust(top=0.85)
     sb.set(font_scale=0.7)
     plt.savefig(f"figures/top_2017.png", bbox_inches = "tight")
-    return plt.show()
-
-top2017(df)
+   
 
 
 def equity2017(df):
@@ -125,9 +112,8 @@ def equity2017(df):
     plt.subplots_adjust(top=0.85)
     sb.set(font_scale=0.7)
     plt.savefig(f"figures/eq_2017.png", bbox_inches = "tight")
-    return plt.show()
+   
 
-equity2017(df)
 
 
 def top10tail(df):
@@ -142,6 +128,4 @@ def top10tail(df):
     sb.set(font_scale=1.2)
     plt.xticks(rotation=90)
     plt.savefig(f"figures/runway_10_tail.png", bbox_inches = "tight")
-    return plt.show()
-
-top10tail(df)
+    
